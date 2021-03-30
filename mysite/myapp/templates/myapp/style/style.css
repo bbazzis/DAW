@@ -1,0 +1,13 @@
+.card-title {
+    text-align:center;
+    font-size: 30px;
+}
+
+.form-group{
+    margin-top: 7px;
+}
+
+#formulario{
+    margin-top: 20px;
+    width: 50%;
+}
