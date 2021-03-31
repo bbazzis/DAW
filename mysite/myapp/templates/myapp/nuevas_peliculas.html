@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+    <header class ="container">
+        <h1 class="display-3">Videoclub</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Videoclub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="navbar-nav mt-2 mt-md-0">
+                    <li class="nav-item"><a class="nav-link" href={% url 'login_admin' %}>Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Peliculas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Añadir peliculas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="formulario" class ="container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Añadir pelicula</h5>
+                <form>
+                    <div class="form-group">
+                      <label for="nombre_pelicula">Nombre</label>
+                      <input type="text" class="form-control" id="nombre_pelicula" name="nombre_pelicula" placeholder="Nombre de la peliucula">
+                    </div>
+                    <div class="form-group">
+                        <label for="url_pelicula">URL de la pelicula</label>
+                        <input type="url" class="form-control" id="url_pelicula" name="url_pelicula" placeholder="URL de la peliucula">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion_pelicula">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion_pelicula" name="descripcion_pelicula" placeholder="Descripcion de la peliucula">
+                    </div>
+                    <div class="form-group">
+                        <label for="ano_pelicula">Año</label>
+                        <input type="number" class="form-control" id="ano_pelicula" name="ano_pelicula placeholder="Año de la peliucula">
+                    </div>
+                    <div class="form-group">
+                        <label for="director_pelicula">Director</label>
+                        <input type="text" class="form-control" id="director_pelicula" name="director_pelicula" placeholder="Director de la peliucula">
+                    </div>
+                    <div class="form-group">
+                        <label for="reparto_pelicula">Reparto de actores</label>
+                        <input type="text" class="form-control" id="reparto_pelicula" name="reparto_pelicula" placeholder="Reparto de actores">
+                    </div>
+                    <div class="form-group">
+                        <label for="url_portada_pelicula">URL de la portada</label>
+                        <input type="url" class="form-control" id="url_portada_pelicula" name="url_portada_pelicula" placeholder="URL de la portada">
+                    </div>
+                    <div class="form-group">
+                        <label for="valoracion_pelicula">Valoracion</label>
+                        <input type="number" class="form-control" id="valoracion_pelicula" name="valoracion_pelicula" placeholder="Valoracion de la peliucula" min="1" max="5">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Añadir</button>
+                  </form>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>
