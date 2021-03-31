@@ -4,10 +4,28 @@
 }
 
 .form-group{
-    margin-top: 7px;
+    margin-top: 15px;
 }
 
 #formulario{
     margin-top: 20px;
     width: 50%;
+}
+
+#ampos-formulario{
+    text-align: end;
+}
+
+#boton-inicio {
+    width: 100%;
+}
+
+#inicio-registro{
+    justify-content: center;
+    align-items: center;
+}
+
+.padre{
+    justify-content: center;
+    align-items: center;
 }
