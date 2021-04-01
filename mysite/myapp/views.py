@@ -16,6 +16,10 @@ def login_admin(request):
     context={}
     return render(request,"myapp/login_admin.html", context)
 
-def nuevas_peliculas(request):
+def new_film(request):
     context={}
-    return render(request,"myapp/nuevas_peliculas.html", context)
+    return render(request,"myapp/new_film.html", context)
+
+def new_user(request):
+    context={}
+    return render(request,"myapp/new_user.html", context)

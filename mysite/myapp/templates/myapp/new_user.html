@@ -39,14 +39,37 @@
             </div>
         </div>
     </nav>
-    <section id="buscar_pelicula" class ="container">
-        <form>
-            <label for="nombre_pelicula">Introduce el nombre de la pelicula:</label>
-            <input type="text" id="nombre_pelicula" name="nombre_pelicula">
-            <input type="submit" value="Buscar">
-        </form>
+    <section id="formulario_user" class ="container">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Nuevo usuario</h4>
+                <form>
+                    <div class="row">
+                        <div class="col" id="inicio-login">
+                            <div class="form-group">
+                                <output id="campos-formulario">Nombre de usuario:</output>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Introduce tu nombre de usuario" required="true">
+                            </div>
+                            <div class="form-group">
+                                <output id="campos-formulario">Contraseña:</output>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********" required="true">
+                            </div>
+                            <div class="form-group">
+                                <output id="campos-formulario">Email:</output>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu email" required="true">
+                            </div>
+                            
+                            <div class="form-group">
+                                <a href="">
+                                    <button id="boton-inicio" type="submit" class="btn btn-primary">Añadir</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>      
+            </div>
+        </div>
     </section>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>
