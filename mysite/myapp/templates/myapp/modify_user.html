@@ -31,7 +31,7 @@
                       
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           <li><a class="dropdown-item" href={% url 'new_user' %}>Añadir</a></li>
-                          <li><a class="dropdown-item" href="#">Borrar/Modificar</a></li>
+                          <li><a class="dropdown-item" href={% url 'modify_user' %}>Borrar/Modificar</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
@@ -40,37 +40,15 @@
             </div>
         </div>
     </nav>
-    <section id="formulario_user" class ="container">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Nuevo usuario</h4>
-                <form>
-                    <div class="row">
-                        <div class="col" id="inicio-login">
-                            <div class="form-group">
-                                <output id="campos-formulario">Nombre de usuario:</output>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Introduce tu nombre de usuario" required="true">
-                            </div>
-                            <div class="form-group">
-                                <output id="campos-formulario">Contraseña:</output>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********" required="true">
-                            </div>
-                            <div class="form-group">
-                                <output id="campos-formulario">Email:</output>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu email" required="true">
-                            </div>
-                            
-                            <div class="form-group">
-                                <a href="">
-                                    <button id="boton-inicio" type="submit" class="btn btn-primary">Añadir</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>      
-            </div>
-        </div>
+    <section id="buscar_usuario" class ="container">
+        <form>
+            <label for="nombre_usuario">Introduce el nombre del usuario:</label>
+            <input type="text" id="nombre_usuario" name="nombre_usuario">
+            <input type="submit" value="Borrar">
+            <input type="submit" value="Modificar">
+        </form>
     </section>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

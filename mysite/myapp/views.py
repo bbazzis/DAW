@@ -23,3 +23,7 @@ def new_film(request):
 def new_user(request):
     context={}
     return render(request,"myapp/new_user.html", context)
+
+def modify_user(request):
+    context={}
+    return render(request,"myapp/modify_user.html", context)
