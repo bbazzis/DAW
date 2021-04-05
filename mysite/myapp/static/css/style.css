@@ -1,3 +1,25 @@
+body, html {
+    background-image: url("../../templates/myapp/img/bj.jpg"); 
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.header {
+
+    background-color: white;
+    
+}
+
+#logo {
+    width: 200px; 
+    height: 100px;
+}
+
 .card-title {
     text-align:center;
     font-size: 30px;
