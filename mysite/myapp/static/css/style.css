@@ -51,8 +51,10 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-
-#buscar_pelicula{
-    align-self: center;
+#buscar_pelicula, #buscar_usuario{
+    margin-top: 20px;
+    width: 50%;
+    color:white;
 }
+
 
