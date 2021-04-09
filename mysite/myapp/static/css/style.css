@@ -58,3 +58,83 @@ body, html {
 #peliculas_nuevas >  div > h2{
     color: white;
 }
+
+#pelicula {
+}
+
+#pelicula-portada {
+    padding: 0 1.5rem;
+}
+
+#pelicula-titulo {
+    text-align: right;
+    display: table;
+    height: 350px;
+}
+
+#pelicula-titulo div {
+    margin: 0;
+    padding: 0 1.5rem;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+#pelicula-titulo-valoracion a {
+    font:caption;
+    font-size: 70px;
+}
+
+#pelicula-titulo-valoracion a1 {
+    font-size: 30px;
+}
+
+#boton-play {
+    width: 260px;
+    height: 40px;
+    padding: 0 1.5rem;
+    font:caption;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+.ventana{
+    align-content: center;
+    background: black;
+    border: solid;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#cerrar {
+    position: absolute;
+    right: 3px;
+    top: 1px;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 48%;
+    height: 0;
+}
+
+.iframe-container iframe {
+    position:absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
