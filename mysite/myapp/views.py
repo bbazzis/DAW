@@ -27,3 +27,7 @@ def new_user(request):
 def modify_user(request):
     context={}
     return render(request,"myapp/modify_user.html", context)
+
+def films(request):
+    context={}
+    return render(request,"myapp/films.html", context)

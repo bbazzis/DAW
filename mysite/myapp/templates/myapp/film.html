@@ -21,7 +21,7 @@
                     <div id="navbar" class="navbar-collapse collapse justify-content-end">
                         <ul class="navbar-nav mt-2 mt-md-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'login_admin' %}>Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Peliculas</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'films' %}>Peliculas</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'new_film' %}>Añadir peliculas</a></li>
                             <li class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
@@ -62,7 +62,9 @@
                         </a>
                     </div>
                     <div id="pelicula-ficha" class="container col-8">
-
+                        <p>Año lanzamiento: 2020</p>
+                        <p>Director: Pete Docter</p>
+                        <p>La película sigue a dos jóvenes soldados británicos a lo largo de un único día en lo más crudo de la Primera Guerra Mundial.</p>
                     </div>
                 </div>
             </div>
