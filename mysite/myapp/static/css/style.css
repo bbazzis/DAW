@@ -20,6 +20,7 @@ body, html {
 
 .card-title {
     text-align:center;
+    color:blue;
     font-size: 30px;
 }
 
@@ -153,9 +154,9 @@ body, html {
 }
 
 .boton-entrar {
-    position:absolute;
+    position:relative;
     top: 38%;
-    right: 0;
+    
 }
 
  .imagen_pelicula{

@@ -21,6 +21,7 @@ body, html {
 
 .card-title {
     text-align:center;
+    color:blue;
     font-size: 30px;
 }
 
@@ -159,7 +160,33 @@ body, html {
     right: 0;
 }
 
- .imagen_pelicula{
-    width: 100%;
-    height: auto;
+  .cards {
+    max-width: 100%;
+    
+    
+    display: grid;
+    grid-gap: 1rem;
   }
+
+  .caja-cuerpo {
+    /*margin: 1rem 1rem;*/
+    padding: 0.7rem 0.7rem;
+  }
+
+  #boton-film {
+      width: 100%;
+  }
+
+  @media (min-width: 300px) {
+    .cards { grid-template-columns: repeat(1, 1fr); }
+  }
+
+  @media (min-width: 400px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  
