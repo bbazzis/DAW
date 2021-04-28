@@ -30,7 +30,8 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href={% url 'new_user' %}>Añadir</a></li>
+                                    <li><a class="dropdown-item" href={% url 'new_user' %}>Añadir usuario</a></li>
+                                    <li><a class="dropdown-item" href={% url 'new_admin' %}>Añadir admin</a></li>
                                     <li><a class="dropdown-item" href={% url 'modify_user' %}>Borrar/Modificar</a></li>
                                 </ul>
                             </li>
@@ -46,22 +47,22 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Nuevo usuario</h4>
-                <form>
+                <form action = {%url 'add_user' %} method="post">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="col" id="inicio-login">
                             <div class="form-group">
                                 <output id="campos-formulario">Nombre de usuario:</output>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Introduce tu nombre de usuario" required="true">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Introduce tu nombre de usuario" required="true">
                             </div>
                             <div class="form-group">
                                 <output id="campos-formulario">Contraseña:</output>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*********" required="true">
+                                <input type="password" class="form-control" id="password" name ="password" placeholder="*********" required="true">
                             </div>
                             <div class="form-group">
                                 <output id="campos-formulario">Email:</output>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduce tu email" required="true">
+                                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email" required="true">
                             </div>
-                            
                             <div class="form-group">
                                 <a href="">
                                     <button id="boton-inicio" type="submit" class="btn btn-primary">Añadir</button>
