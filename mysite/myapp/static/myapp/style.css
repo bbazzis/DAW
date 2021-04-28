@@ -21,7 +21,6 @@ body, html {
 
 .card-title {
     text-align:center;
-    color:blue;
     font-size: 30px;
 }
 
@@ -168,9 +167,26 @@ body, html {
     grid-gap: 1rem;
   }
 
+.imagen_pelicula {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    border: solid 4px;
+}
+
+#titulo-film-lista{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
   .caja-cuerpo {
     /*margin: 1rem 1rem;*/
     padding: 0.7rem 0.7rem;
+    justify-content: center;
+    align-items: center;
+
   }
 
   #boton-film {
