@@ -60,18 +60,30 @@ body, html {
     color: white;
 }
 
+/*Film*/
+
 #pelicula {
     margin-top: 30px;
 }
 
-#pelicula-portada {
-    padding: 0 1.5rem;
+#pelicula-card {
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+}
+
+#pelicula-portada img{
+    /*background: blue;*/
+    /*display: block;
+    margin-left: auto;
+    margin-right: auto;*/
+    border: solid 3px;
 }
 
 #pelicula-titulo {
-    text-align: right;
+    /*background: yellowgreen;*/
+    text-align: left;
     display: table;
-    height: 350px;
+    height: 100%;
 }
 
 #pelicula-titulo div {
@@ -83,25 +95,28 @@ body, html {
 
 #pelicula-titulo-valoracion a {
     font:caption;
-    font-size: 70px;
+    font-size: 60px;
 }
 
 #pelicula-titulo-valoracion a1 {
     font-size: 30px;
 }
 
+#pelicula-play{
+    /*background: red;*/
+    padding: 1rem 1.5rem;
+}
+
 #boton-play {
-    width: 260px;
+    width: 340px;
     height: 40px;
-    padding: 0 1.5rem;
     font:caption;
     font-size: 20px;
-    margin-top: 15px;
 }
 
 #pelicula-ficha {
-    padding-right: 2rem;
-    margin-top: 15px;
+    /*background: green;*/
+    padding:1rem 1rem;
 }
 
 #pelicula-ficha div{
@@ -111,7 +126,83 @@ body, html {
     display: table-cell;
 }
 
+@media (max-width: 991px){
+    #pelicula-portada img {
+        width: 240px;
+        height: 300px;
+    }
 
+    #boton-play {
+        width: 240px;
+    }
+
+    #pelicula-titulo-valoracion a {
+        font-size: 55px;
+    }
+
+    #pelicula-titulo-valoracion a1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px){
+    #pelicula-card{
+        grid-template-columns: 1fr;
+    }
+
+    #pelicula-portada img {
+        width: 280px;
+        height: 350px;
+    }
+
+    #pelicula-play {
+        padding-bottom: 0;
+    }
+
+    #boton-play {
+        width: 280px;
+    }
+
+    #pelicula-titulo-valoracion{
+        padding-top: 1rem;
+        text-align: center;
+    }
+
+    #pelicula-titulo-valoracion a {
+        font-size: 40px;
+    }
+
+    #pelicula-titulo-valoracion a1 {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 400px){
+    #pelicula-portada img {
+        width: 200px;
+        height: 250px;
+    }
+
+    #boton-play {
+        width: 200px;
+    }
+
+    #pelicula-titulo-valoracion a {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 310px){
+    #pelicula-portada img {
+        width: 140px;
+        height: 175px;
+    }
+
+    #boton-play {
+        width: 140px;
+    }
+}
 
 
 
@@ -193,16 +284,50 @@ body, html {
       width: 100%;
   }
 
-  @media (min-width: 300px) {
+  /*@media (max-width: 300px) {
     .cards { grid-template-columns: repeat(1, 1fr); }
-  }
+  }*/
 
-  @media (min-width: 400px) {
+  @media (min-width: 550px) {
     .cards { grid-template-columns: repeat(2, 1fr); }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 992px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 1200px) {
+    .imagen_pelicula {  width: 240px;
+                        height: 300px;}
+  }
+
+  @media (max-width: 767px) {
+    .imagen_pelicula {  width: 220px;
+                        height: 275px;}
+  }
+
+  @media (max-width: 550px) {
+    .imagen_pelicula {  width: 260px;
+                        height: 325px;
+                        grid-template-columns: repeat(1, 1fr);}
+  }
+
+  @media (max-width: 330px) {
+    .imagen_pelicula {  width: 160px;
+                        height: 200px;
+                    }
+  }
+
+  @media (max-width: 230px) {
+    .imagen_pelicula {  width: 140px;
+                        height: 175px;
+                    }
+  }
+
+  @media (max-width: 200px) {
+    .imagen_pelicula {  width: 80px;
+                        height: 100px;
+                    }
   }
 
   

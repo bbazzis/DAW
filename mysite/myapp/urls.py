@@ -13,5 +13,6 @@ urlpatterns = [
  path('add_film', views.add_film, name="add_film"),
  path('add_user', views.add_user, name="add_user"),
  path('add_admin', views.add_admin, name="add_admin"),
+ path('film', views.film, name="film"),
 ]
 

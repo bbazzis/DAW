@@ -37,6 +37,10 @@ def films(request):
     context={}
     return render(request,"myapp/films.html", context)
 
+def film(request):
+    context={}
+    return render(request,"myapp/film.html", context)
+
 def add_film(request):
     context={}
     if request.method == "POST":
