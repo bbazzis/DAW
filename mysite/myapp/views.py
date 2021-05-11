@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm 
 # Create your views here.
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
 from myapp import models
 from django.contrib.auth.models import User, Permission, Group
-
+from django.contrib.auth.decorators import login_required
 def index(request):
     template = loader.get_template("myapp/index.html")
     return render(request, 'myapp/index.html')
@@ -28,45 +28,43 @@ def get_login(request):
                 return redirect('login_admin')
             else:
                 return redirect('login_user')
-       
         else:
             # Incorrect credentials, let's throw an error to the screen.
             return render(request, 'myapp/index.html', {'login_failed': True})
-    #else:
-     #   return render(request,"myapp/index.html", context)
 
+@login_required
 def login_user(request):
     context={}
     return render(request,"myapp/login_user.html", context)
-
+@login_required
 def login_admin(request):
     context={}
     return render(request,"myapp/login_admin.html", context)
-
+@login_required
 def new_film(request):
     context={}
     return render(request,"myapp/new_film.html", context)
-
+@login_required
 def new_user(request):
     context={}
     return render(request,"myapp/new_user.html", context)
-
+@login_required
 def new_admin(request):
     context={}
     return render(request,"myapp/new_admin.html", context)
-
+@login_required
 def modify_user(request):
     context={}
     return render(request,"myapp/modify_user.html", context)
-
+@login_required
 def films(request):
     context={}
     return render(request,"myapp/films.html", context)
-
+@login_required
 def film(request):
     context={}
     return render(request,"myapp/film.html", context)
-
+@login_required
 def add_film(request):
     context={}
     if request.method == "POST":
@@ -82,7 +80,7 @@ def add_film(request):
         new_film.save()
 
     return render(request,"myapp/new_film.html", context)
-
+@login_required
 def add_user(request):
     context={}
     if request.method == "POST":
@@ -96,7 +94,7 @@ def add_user(request):
         user_to_add.groups.add(users)
 
     return render(request,"myapp/new_user.html", context)
-
+@login_required
 def add_admin(request):
     context={}
     if request.method == "POST":
@@ -111,4 +109,8 @@ def add_admin(request):
         admin_to_add.groups.add(admins)
 
     return render(request,"myapp/new_admin.html", context)
-
+@login_required
+def get_logout(request):
+    context={}
+    logout(request)
+    return render(request, 'myapp/logout.html', context)

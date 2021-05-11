@@ -41,6 +41,10 @@ body, html {
     width: 100%;
 }
 
+h4 > #error_login_message{
+    color: white;
+}
+
 #inicio-registro{
     justify-content: center;
     align-items: center;
@@ -159,7 +163,8 @@ body, html {
     
 }
 
- .imagen_pelicula{
+.imagen_pelicula{
     width: 100%;
     height: auto;
-  }
+}
+

@@ -15,6 +15,6 @@ urlpatterns = [
  path('add_user', views.add_user, name="add_user"),
  path('add_admin', views.add_admin, name="add_admin"),
  path('film', views.film, name="film"),
-
+ path('get_logout', views.get_logout, name="get_logout"),
 ]
 
