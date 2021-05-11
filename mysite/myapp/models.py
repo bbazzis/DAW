@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User, Permission, Group
 # Create your models here.
 class Films(models.Model):
     name_film = models.CharField(max_length=100)
@@ -10,9 +10,3 @@ class Films(models.Model):
     actors = models.CharField(max_length=100)
     url_cover = models.URLField()
     num_stars = models.FloatField()
-
-class Users(models.Model):
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=20)
-    email = models.EmailField()
-    type_user = models.BooleanField()
