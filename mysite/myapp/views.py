@@ -35,7 +35,12 @@ def modify_user(request):
 
 def films(request):
     context={}
-    return render(request,"myapp/films.html", context)
+    if request.method == "GET":
+        print("Llego")
+        films_list = Films.objects.all()
+        
+
+    return render(request,"myapp/films.html", {'films': films_list})
 
 def film(request):
     context={}
