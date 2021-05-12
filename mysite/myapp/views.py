@@ -59,18 +59,8 @@ def modify_user(request):
 @login_required
 def films(request):
     context={}
-<<<<<<< HEAD
-    if request.method == "GET":
-        print("Llego")
-        films_list = Films.objects.all()
-        
-
-    return render(request,"myapp/films.html", {'films': films_list})
-
-=======
     return render(request,"myapp/films.html", context)
 @login_required
->>>>>>> 32b0a9e6c6c530dfe6c98ab3b3900149c1244d67
 def film(request):
     context={}
     return render(request,"myapp/film.html", context)
