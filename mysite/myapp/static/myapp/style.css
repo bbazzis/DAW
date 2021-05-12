@@ -56,7 +56,40 @@ body, html {
     color:white;
 }
 
+#input_nombre_pelicula{
+    width:25%;
+    margin:10px;
+    padding:5px 8px;
+    border-radius:5px;
+    outline:none;
+    border:2px solid #ccd1d1;
+    background:#aeb6bf;
+    transition:all 0.5s;
+}
+
+#input_nombre_pelicula:focus{
+    background:#fff;
+    padding:10px 16px;
+    width:40%;
+}
+
+#boton_buscador_film{
+    text-decoration: none;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 5px;
+    border: 2px solid #ccd1d1;
+  }
+  #boton_buscador_film:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+
 #peliculas_nuevas >  div > h2{
+    margin-top: 50px;
     color: white;
 }
 

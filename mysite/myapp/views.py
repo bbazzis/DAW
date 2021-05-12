@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm 
 # Create your views here.
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
-from myapp import models
+from myapp.models import *
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.decorators import login_required
 def index(request):
@@ -59,11 +59,14 @@ def modify_user(request):
 @login_required
 def films(request):
     context={}
-    return render(request,"myapp/films.html", context)
+    if request.method == 'GET':
+        films = Films.objects.all()
+    return render(request,"myapp/films.html", {'films':films})
 @login_required
-def film(request):
+def film(request, nameFilm):
     context={}
-    return render(request,"myapp/film.html", context)
+    films = Films.objects.get(name_film = nameFilm)
+    return render(request,"myapp/film.html", {'films':films})
 @login_required
 def add_film(request):
     context={}

@@ -41,35 +41,34 @@
             </nav>
         </div>
     </header>
+    {% csrf_token %}
+    {% for film in films %}
     <section id="pelicula" class ="container">
         <div class="card">
             <div id="pelicula-card" class="card-body container">
-                <!--div class="row container"-->
-                    <div id ="pelicula-portada">
-                        <img src="{%static 'myapp/img/1917.jpg' %}" alt="1917" width="340" height="425"  class="mx-auto d-block">
+                <div id ="pelicula-portada">
+                    <img src="{{ film.url_cover }}" alt="1917" width="340" height="425"  class="mx-auto d-block">
+                </div>
+                <div id="pelicula-titulo">
+                    <div id="pelicula-titulo-valoracion" class="container">
+                        <a>{{ film.name_film }}</a>
+                        </br>
+                        <a1>{{ film.num_stars }}/5 &#x2605;</a1>
                     </div>
-                    <div id="pelicula-titulo">
-                        <div id="pelicula-titulo-valoracion" class="container">
-                            <a>1917 y La Maldición de la Perla Negra</a>
-                            </br>
-                            <a1>4,5/5 &#x2605;</a1>
-                        </div>
+                </div>
+                <div id="pelicula-play">
+                    <a href="javascript:abrir()">
+                        <button id="boton-play" type="submit" class="btn btn-primary mx-auto d-block">Play</button>
+                    </a>
+                </div>
+                <div id="pelicula-ficha">
+                    <div class="container">
+                        <p><b>Año lanzamiento: </b>{{ film.year }}</p>
+                        <p><b>Director: </b>{{ film.director }}</p>
+                        <p><b>Reparto: </b>{{ film.actors }}</p>
+                        <p><b>Sinopsis: </b>{{ film.description }}</p>
                     </div>
-                <!--/div>
-                <div class="row container"-->
-                    <div id="pelicula-play">
-                        <a href="javascript:abrir()">
-                            <button id="boton-play" type="submit" class="btn btn-primary mx-auto d-block">Play</button>
-                        </a>
-                    </div>
-                    <div id="pelicula-ficha">
-                        <div class="container">
-                            <p><b>Año lanzamiento:</b> 2020</p>
-                            <p><b>Director:</b> Pete Docter</p>
-                            <p>La película sigue a dos jóvenes soldados británicos a lo largo de un único día en lo más crudo de la Primera Guerra Mundial.</p>
-                        </div>
-                    </div>
-                <!--/div-->
+                </div>
             </div>
         </div>
     </section>
@@ -79,10 +78,11 @@
             <a href="javascript:cerrar()"> <img src="img/x-mark.png" width="25" height="25"></a>
         </div>
         <div class="iframe-container">
-            <iframe width="1870" height="850" src="https://www.youtube.com/embed/YqNYrYUiMfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="1870" height="850" src="{{ film.url_film }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    
+    {% endfor %}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script>
         function abrir(){
