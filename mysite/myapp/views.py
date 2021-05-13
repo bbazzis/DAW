@@ -61,11 +61,14 @@ def films(request):
     context={}
     if request.method == 'GET':
         films = Films.objects.all()
+        print (films)
     return render(request,"myapp/films.html", {'films':films})
 @login_required
 def film(request, nameFilm):
     context={}
-    films = Films.objects.get(name_film = nameFilm)
+    if request.method == 'GET':
+        films = Films.objects.filter(name_film = nameFilm)
+        
     return render(request,"myapp/film.html", {'films':films})
 @login_required
 def add_film(request):
