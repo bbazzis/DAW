@@ -43,37 +43,27 @@
             </nav>
         </div>
     </header>
-    <section id="formulario_user" class ="container">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Nuevo usuario</h4>
-                <form action = {%url 'add_user' %} method="post">
-                    {% csrf_token %}
-                    <div class="row">
-                        <div class="col" id="inicio-login">
-                            <div class="form-group">
-                                <output id="campos-formulario">Nombre de usuario:</output>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Introduce tu nombre de usuario" required="true">
-                            </div>
-                            <div class="form-group">
-                                <output id="campos-formulario">Contraseña:</output>
-                                <input type="password" class="form-control" id="password" name ="password" placeholder="*********" required="true">
-                            </div>
-                            <div class="form-group">
-                                <output id="campos-formulario">Email:</output>
-                                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce tu email" required="true">
-                            </div>
-                            <div class="form-group">
-                                <a href="">
-                                    <button id="boton-inicio" type="submit" class="btn btn-primary">Añadir</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>      
-            </div>
+    <section id="buscar_usuario" class ="container">
+        <div action = {%url 'modify_users' %} method="get">
+            {% for user in users %}
+            <li>
+                Username: {{ user.username }}
+                Email: {{ user.email }}
+                <a href={% url 'mod_user' user.username %}>Modificar</a>
+                <a href={% url 'del_user' user.username %}>Eliminar</a>
+            </li>
+            {% endfor %}
+            
         </div>
+        
+        <form>
+            <label for="nombre_usuario">Introduce el nombre del usuario:</label>
+            <input type="text" id="nombre_usuario" name="nombre_usuario">
+            <input type="submit" value="Borrar">
+            <input type="submit" value="Modificar">
+        </form>
     </section>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
-from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 # Create your views here.
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
 from myapp.models import *
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.decorators import login_required
+from myapp.forms import EditProfileForm
 def index(request):
     template = loader.get_template("myapp/index.html")
     return render(request, 'myapp/index.html')
@@ -53,9 +54,15 @@ def new_admin(request):
     context={}
     return render(request,"myapp/new_admin.html", context)
 @login_required
-def modify_user(request):
+def modify_users(request):
     context={}
-    return render(request,"myapp/modify_user.html", context)
+    if request.method =="GET":
+        user=get_user_model()
+        users = user.objects.all()
+        
+        return render(request,"myapp/modify_users.html", {"users":users})
+    else:
+        return render(request,"myapp/modify_users.html", context)
 @login_required
 def films(request):
     context={}
@@ -120,3 +127,20 @@ def get_logout(request):
     context={}
     logout(request)
     return render(request, 'myapp/logout.html', context)
+
+def del_user(request, username):
+    context={}
+    u =User.objects.get(username =username)
+    u.delete()
+    return render (request, "myapp/modify_users.html", context)
+
+def mod_user(request, username):
+    u = User.objects.get(username=username)
+    if request.method == "GET":
+        form = EditProfileForm(instance=u)
+        return render (request, "myapp/modify_user.html", {'form':form})
+    elif request.method == "POST":
+        form=EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return render (request, "myapp/modify_users.html")

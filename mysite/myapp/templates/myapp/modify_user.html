@@ -32,7 +32,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a class="dropdown-item" href={% url 'new_user' %}>Añadir usuario</a></li>
                                     <li><a class="dropdown-item" href={% url 'new_admin' %}>Añadir admin</a></li>
-                                    <li><a class="dropdown-item" href={% url 'modify_user' %}>Borrar/Modificar</a></li>
+                                    <li><a class="dropdown-item" href={% url 'modify_users' %}>Borrar/Modificar</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
@@ -43,14 +43,13 @@
             </nav>
         </div>
     </header>
-    <section id="buscar_usuario" class ="container">
-        <form>
-            <label for="nombre_usuario">Introduce el nombre del usuario:</label>
-            <input type="text" id="nombre_usuario" name="nombre_usuario">
-            <input type="submit" value="Borrar">
-            <input type="submit" value="Modificar">
+    <div class = "container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
         </form>
-    </section>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
