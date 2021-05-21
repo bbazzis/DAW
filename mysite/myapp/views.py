@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm
 # Create your views here.
 from django.http import HttpResponse, HttpRequest
 from django.template import loader
 from myapp.models import *
 from django.contrib.auth.models import User, Permission, Group
 from django.contrib.auth.decorators import login_required
-from myapp.forms import EditProfileForm
+
 def index(request):
     template = loader.get_template("myapp/index.html")
     return render(request, 'myapp/index.html')
@@ -135,12 +135,54 @@ def del_user(request, username):
     return render (request, "myapp/modify_users.html", context)
 
 def mod_user(request, username):
-    u = User.objects.get(username=username)
+    u = User.objects.filter(username=username)
     if request.method == "GET":
-        form = EditProfileForm(instance=u)
-        return render (request, "myapp/modify_user.html", {'form':form})
+        return render (request, "myapp/modify_user.html", {'user':u})
     elif request.method == "POST":
-        form=EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return render (request, "myapp/modify_users.html")
+        user=User.objects.get(username =username)
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        user.username=username
+        user.email=email
+        user.password=password
+        user.save()
+        return render (request, "myapp/modify_users.html", {})
+
+def modify_films(request):
+    context={}
+    if request.method == 'GET':
+        films = Films.objects.all()
+        print (films)
+    return render(request,"myapp/modify_films.html", {'films':films})
+
+def del_film(request, name_film):
+    context={}
+    film =Films.objects.get(name_film=name_film)
+    film.delete()
+    return render (request, "myapp/modify_films.html", context)
+
+def mod_film(request, name_film):
+    film = Films.objects.filter(name_film=name_film)
+    if request.method == "GET":
+        return render (request, "myapp/modify_film.html", {'films':film})
+    elif request.method == "POST":
+        film=Films.objects.get(name_film=name_film)
+        name_film = request.POST['name_film']
+        url_film = request.POST['url_film']
+        description = request.POST['description']
+        year = request.POST['year']
+        director = request.POST['director']
+        actors = request.POST['actors']
+        url_cover = request.POST['url_cover']
+        num_stars = request.POST['num_stars']
+        film.name_film=name_film
+        film.url_film=url_film
+        film.description=description
+        film.year=year
+        film.director=director
+        film.actors=actors
+        film.url_cover=url_cover
+        film.num_stars=num_stars
+        film.save()
+        return render (request, "myapp/modify_films.html", {})

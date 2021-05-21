@@ -23,7 +23,15 @@
                         <ul class="navbar-nav mt-2 mt-md-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'login_admin' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'films' %}>Peliculas</a></li>
-                            <li class="nav-item"><a class="nav-link" href={% url 'new_film' %}>Añadir peliculas</a></li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Acciones peliculas
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href={% url 'new_film' %}>Añadir peliculas</a></li>
+                                    <li><a class="dropdown-item" href={% url 'modify_films' %}>Borrar/Modificar peliculas</a></li>
+                                    </ul>
+                            </li>
                             <li class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
                                     Usuarios

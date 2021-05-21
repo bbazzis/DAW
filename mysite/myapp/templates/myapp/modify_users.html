@@ -23,7 +23,15 @@
                         <ul class="navbar-nav mt-2 mt-md-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'login_admin' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'films' %}>Peliculas</a></li>
-                            <li class="nav-item"><a class="nav-link" href={% url 'new_film' %}>Añadir peliculas</a></li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Acciones peliculas
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href={% url 'new_film' %}>Añadir peliculas</a></li>
+                                    <li><a class="dropdown-item" href={% url 'modify_films' %}>Borrar/Modificar peliculas</a></li>
+                                    </ul>
+                            </li>
                             <li class="dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
                                     Usuarios
@@ -47,7 +55,7 @@
         <div action = {%url 'modify_users' %} method="get">
             {% for user in users %}
             <li>
-                Username: {{ user.username }}
+                Username: {{ user.username }},
                 Email: {{ user.email }}
                 <a href={% url 'mod_user' user.username %}>Modificar</a>
                 <a href={% url 'del_user' user.username %}>Eliminar</a>
@@ -55,13 +63,6 @@
             {% endfor %}
             
         </div>
-        
-        <form>
-            <label for="nombre_usuario">Introduce el nombre del usuario:</label>
-            <input type="text" id="nombre_usuario" name="nombre_usuario">
-            <input type="submit" value="Borrar">
-            <input type="submit" value="Modificar">
-        </form>
     </section>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
