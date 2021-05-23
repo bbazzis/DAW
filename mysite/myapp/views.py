@@ -59,7 +59,6 @@ def modify_users(request):
     if request.method =="GET":
         user=get_user_model()
         users = user.objects.all()
-        
         return render(request,"myapp/modify_users.html", {"users":users})
     else:
         return render(request,"myapp/modify_users.html", context)
@@ -75,8 +74,13 @@ def film(request, nameFilm):
     context={}
     if request.method == 'GET':
         films = Films.objects.filter(name_film = nameFilm)
-        
-    return render(request,"myapp/film.html", {'films':films})
+        urls = []
+        for f in films:
+            urlOld = getattr(f, 'url_film')
+            codigo = urlOld[17:]
+            urlNew = 'https://www.youtube.com/embed/' + codigo
+            print (urlNew)
+    return render(request,"myapp/film.html", {'films':films, 'urlNew': urlNew})
 @login_required
 def add_film(request):
     context={}
