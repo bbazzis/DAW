@@ -21,6 +21,8 @@ urlpatterns = [
  path('mod_user/<str:username>', views.mod_user, name="mod_user"),
  path('modify_films', views.modify_films, name="modify_films"),
  path('del_film/<str:name_film>', views.del_film, name="del_film"),
- path('mod_film/<str:name_film>', views.mod_film, name="mod_film")
+ path('mod_film/<str:name_film>', views.mod_film, name="mod_film"),
+ path('films_user', views.films_user, name='films_user'),
+ path('film_user/<str:nameFilm>/', views.film_user, name="film_user")
 ]
 

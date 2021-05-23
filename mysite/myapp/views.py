@@ -186,3 +186,18 @@ def mod_film(request, name_film):
         film.num_stars=num_stars
         film.save()
         return render (request, "myapp/modify_films.html", {})
+
+@login_required
+def films_user(request):
+    context={}
+    if request.method == 'GET':
+        films = Films.objects.all()
+        print (films)
+    return render(request,"myapp/films_user.html", {'films':films})
+@login_required
+def film_user(request, nameFilm):
+    context={}
+    if request.method == 'GET':
+        films = Films.objects.filter(name_film = nameFilm)
+        
+    return render(request,"myapp/film_user.html", {'films':films})

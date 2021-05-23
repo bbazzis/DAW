@@ -168,6 +168,6 @@ h4 > #error_login_message{
     height: auto;
 }
 
-#logout{
+h4 > #logout{
     color: white;
 }
