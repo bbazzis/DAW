@@ -1,3 +1,4 @@
+from django.db.models.query_utils import Q
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -69,6 +70,7 @@ def films(request):
         films = Films.objects.all()
         print (films)
     return render(request,"myapp/films.html", {'films':films})
+
 @login_required
 def film(request, nameFilm):
     context={}
@@ -205,3 +207,15 @@ def film_user(request, nameFilm):
         films = Films.objects.filter(name_film = nameFilm)
         
     return render(request,"myapp/film_user.html", {'films':films})
+
+
+@login_required
+def search(request):
+    print("HOLAAAAAAAA")
+    context={}
+    if request.method == 'GET':
+        q = request.GET.get("nombre_pelicula")
+        
+        query = (Q(name_film__icontains=q))
+        films = Films.objects.filter(query)
+    return render(request,"myapp/search.html", {'films':films})

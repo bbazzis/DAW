@@ -54,6 +54,7 @@ body, html {
     margin-top: 20px;
     width: 50%;
     color:white;
+    align-items: center;
 }
 
 #input_nombre_pelicula{
