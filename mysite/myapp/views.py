@@ -133,13 +133,13 @@ def get_logout(request):
     context={}
     logout(request)
     return render(request, 'myapp/logout.html', context)
-
+@login_required
 def del_user(request, username):
     context={}
     u =User.objects.get(username =username)
     u.delete()
     return render (request, "myapp/modify_users.html", context)
-
+@login_required
 def mod_user(request, username):
     u = User.objects.filter(username=username)
     if request.method == "GET":
@@ -154,20 +154,20 @@ def mod_user(request, username):
         user.password=password
         user.save()
         return render (request, "myapp/modify_users.html", {})
-
+@login_required
 def modify_films(request):
     context={}
     if request.method == 'GET':
         films = Films.objects.all()
         print (films)
     return render(request,"myapp/modify_films.html", {'films':films})
-
+@login_required
 def del_film(request, name_film):
     context={}
     film =Films.objects.get(name_film=name_film)
     film.delete()
     return render (request, "myapp/modify_films.html", context)
-
+@login_required
 def mod_film(request, name_film):
     film = Films.objects.filter(name_film=name_film)
     if request.method == "GET":
