@@ -34,8 +34,8 @@
     </header>
 
     <section id="buscar_pelicula" class ="container">
-        <form>
-            <input type="search" id="input_nombre_pelicula" name="nombre_pelicula" placeholder="Nombre película">
+        <form action={% url 'search' %} method="GET">
+            <input type="search" id="input_nombre_pelicula" name="nombre_pelicula" placeholder="Buscar nombre película">
             <button type="submit" id="boton_buscador_film"><i class="fa fa-search"></i></button>
         </form>
     </section>
