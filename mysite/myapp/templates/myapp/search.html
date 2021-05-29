@@ -16,15 +16,34 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div id="nav" class="container">
-                    <a class="navbar-brand" href={% url 'index' %}>Videoclub</a>
+                    <a class="navbar-brand" href={% url 'login_admin' %}>Videoclub</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="navbar" class="navbar-collapse collapse justify-content-end">
                         <ul class="navbar-nav mt-2 mt-md-0">
-                            <li class="nav-item"><a class="nav-link" href={% url 'login_user' %}>Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'login_admin' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'films' %}>Peliculas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+                                    Acciones peliculas
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href={% url 'new_film' %}>Añadir peliculas</a></li>
+                                    <li><a class="dropdown-item" href={% url 'modify_films' %}>Borrar/Modificar peliculas</a></li>
+                                    </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+                                Usuarios
+                                </a>
+                            
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href={% url 'new_user' %}>Añadir usuario</a></li>
+                                <li><a class="dropdown-item" href={% url 'new_admin' %}>Añadir admin</a></li>
+                                <li><a class="dropdown-item" href={% url 'modify_users' %}>Borrar/Modificar</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item"><a class="nav-link" href={% url 'get_logout' %}>Cerrar sesión</a></li>
                         </ul>
                     </div>
@@ -42,7 +61,7 @@
 
     <section id="peliculas_nuevas" class="mb-5">
         <div class="container">
-            <h2>Listado Completo de Películas</h2>
+            <h2>Búsqueda</h2>
         </div>
         <div class="container">
             <div class="cards" action = {% url 'films' %} method="get">

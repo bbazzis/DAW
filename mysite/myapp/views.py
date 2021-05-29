@@ -37,11 +37,15 @@ def get_login(request):
 @login_required
 def login_user(request):
     context={}
-    return render(request,"myapp/login_user.html", context)
+    if request.method == 'GET':
+        films = Films.objects.order_by('-num_stars')[:3]
+    return render(request,"myapp/login_user.html", {'films':films})
 @login_required
 def login_admin(request):
     context={}
-    return render(request,"myapp/login_admin.html", context)
+    if request.method == 'GET':
+        films = Films.objects.order_by('-num_stars')[:3]
+    return render(request,"myapp/login_admin.html", {'films':films})
 @login_required
 def new_film(request):
     context={}
@@ -81,7 +85,6 @@ def film(request, nameFilm):
             urlOld = getattr(f, 'url_film')
             codigo = urlOld[17:]
             urlNew = 'https://www.youtube.com/embed/' + codigo
-            print (urlNew)
     return render(request,"myapp/film.html", {'films':films, 'urlNew': urlNew})
 @login_required
 def add_film(request):
@@ -205,13 +208,16 @@ def film_user(request, nameFilm):
     context={}
     if request.method == 'GET':
         films = Films.objects.filter(name_film = nameFilm)
-        
-    return render(request,"myapp/film_user.html", {'films':films})
+        urls = []
+        for f in films:
+            urlOld = getattr(f, 'url_film')
+            codigo = urlOld[17:]
+            urlNew = 'https://www.youtube.com/embed/' + codigo     
+    return render(request,"myapp/film_user.html", {'films':films, 'urlNew': urlNew})
 
 
 @login_required
 def search(request):
-    print("HOLAAAAAAAA")
     context={}
     if request.method == 'GET':
         q = request.GET.get("nombre_pelicula")
@@ -219,3 +225,13 @@ def search(request):
         query = (Q(name_film__icontains=q))
         films = Films.objects.filter(query)
     return render(request,"myapp/search.html", {'films':films})
+
+@login_required
+def search_user(request):
+    context={}
+    if request.method == 'GET':
+        q = request.GET.get("nombre_pelicula")
+        
+        query = (Q(name_film__icontains=q))
+        films = Films.objects.filter(query)
+    return render(request,"myapp/search_user.html", {'films':films})

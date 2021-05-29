@@ -16,7 +16,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div id="nav" class="container">
-                    <a class="navbar-brand" href="#">Videoclub</a>
+                    <a class="navbar-brand" href={% url 'login_user' %}>Videoclub</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -24,7 +24,6 @@
                         <ul class="navbar-nav mt-2 mt-md-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'login_user' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'films_user' %}>Peliculas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'get_logout' %}>Cerrar sesión</a></li>
                         </ul>
                     </div>
@@ -34,9 +33,9 @@
     </header>
 
     <section id="buscar_pelicula" class ="container">
-        <form>
-            <input type="search" id="input_nombre_pelicula" name="nombre_pelicula" placeholder="Nombre película">
-            <button type="submit" id="boton_buscador_film"><i class="fa fa-search"></i></button>
+        <form action={% url 'search_user' %} method="GET">
+            <input type="search" id="input_nombre_pelicula" name="nombre_pelicula" placeholder="Buscar nombre película">
+                <button type="submit" id="boton_buscador_film" class="btn btn-primary btn-block"><i class="fa fa-search"></i></button>
         </form>
     </section>
 

@@ -24,6 +24,7 @@ urlpatterns = [
  path('mod_film/<str:name_film>', views.mod_film, name="mod_film"),
  path('films_user', views.films_user, name='films_user'),
  path('film_user/<str:nameFilm>/', views.film_user, name="film_user"),
- path('search', views.search, name="search")
+ path('search', views.search, name="search"),
+ path('search_user', views.search_user, name="search_user")
 ]
 

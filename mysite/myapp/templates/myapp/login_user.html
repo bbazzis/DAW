@@ -16,7 +16,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <div id="nav" class="container">
-                    <a class="navbar-brand" href="#">Videoclub</a>
+                    <a class="navbar-brand" href={% url 'login_user' %}>Videoclub</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -24,7 +24,6 @@
                         <ul class="navbar-nav mt-2 mt-md-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'login_user' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'films_user' %}>Peliculas</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Ajustes</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'get_logout' %}>Cerrar sesión</a></li>
                         </ul>
                     </div>
@@ -33,33 +32,30 @@
         </div>
     </header>
     <section id="buscar_pelicula" class ="container">
-        <form action={% url 'search' %} method="GET">
+        <form action={% url 'search_user' %} method="GET">
             <input type="search" id="input_nombre_pelicula" name="nombre_pelicula" placeholder="Buscar nombre película">
                 <button type="submit" id="boton_buscador_film" class="btn btn-primary btn-block"><i class="fa fa-search"></i></button>
         </form>
     </section>
+
     <section id="peliculas_nuevas" class="mb-5">
         <div class="container">
-            <h2>Añadidas esta semana</h2>
+            <h2>Películas mejor valoradas</h2>
         </div>
         <div class="container">
-            <div class="cards">
+            <div class="cards" action = {% url 'films_user' %} method="get">
+                {% csrf_token %}
+                {% for film in films %}
                 <div id="caja" class="card">
                     <div class="caja-cuerpo">
-                        <img class="imagen_pelicula" src="{%static 'myapp/img/1917.jpg' %}" alt="1917" width="160" height="200" class="mx-auto d-block">
-                        <h3>1917</h3>
-                        <p>Valoración: 4/5</p>
-                        <button id="boton-film" class="btn btn-primary btn-block">Ver</button>
+                        <img class="imagen_pelicula" src="{{ film.url_cover }}" alt="1917" width="320" height="400" class="mx-auto d-block">
+                        <h3 id="titulo-film-lista"><strong>{{ film.name_film }}</strong> <small>({{ film.num_stars }}/5 &#x2605;)</small></h3>
+                        <a href={% url 'film_user' film.name_film %}>
+                            <button id="boton-film" class="btn btn-primary btn-block">Ver</button>
+                        </a>
                     </div>
                 </div>
-                <div id="caja" class="card">
-                    <div class="caja-cuerpo">
-                        <img class="imagen_pelicula" src="{%static 'myapp/img/soul.jpg' %}" alt="Soul" width="160" height="200" class="mx-auto d-block">
-                        <h3>Soul</h3>
-                        <p>Valoración: 3.9/5</p>
-                        <button id="boton-film" class="btn btn-primary btn-block">Ver</button>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
